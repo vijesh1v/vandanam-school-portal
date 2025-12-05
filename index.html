@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vandanam School</title>
-    <!-- Keeping Tailwind CDN for the demo to avoid extra setup files, though postcss is recommended for prod -->
+    <!-- Keeping Tailwind CDN for the demo to avoid extra setup files -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -65,6 +65,8 @@
 </head>
   <body class="bg-gray-50 text-slate-800 antialiased selection:bg-brand-200 selection:text-brand-900">
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+    <!-- Note: relative path ./index.tsx is crucial for GitHub Pages subdirectory deployment -->
+    <script type="module" src="./index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>

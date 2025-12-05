@@ -5,7 +5,7 @@
   "homepage": "https://vijesh1v.github.io/vandanam-school-portal/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
