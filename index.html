@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vandanam School</title>
-    <!-- Keeping Tailwind CDN for the demo to avoid extra setup files -->
+    <!-- Tailwind CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -30,7 +30,6 @@
       }
     </script>
     <style>
-      /* Custom scrollbar for cleaner UI */
       ::-webkit-scrollbar {
         width: 8px;
         height: 8px;
@@ -65,7 +64,7 @@
 </head>
   <body class="bg-gray-50 text-slate-800 antialiased selection:bg-brand-200 selection:text-brand-900">
     <div id="root"></div>
-    <!-- Note: relative path ./index.tsx is crucial for GitHub Pages subdirectory deployment -->
+    <!-- Vite handles the resolution of this path based on the 'base' config -->
     <script type="module" src="./index.tsx"></script>
   <script type="module" src="/index.tsx"></script>
 </body>

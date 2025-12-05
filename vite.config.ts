@@ -1,17 +1,21 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig({
-  plugins: [react()],
-  // This is critical for GitHub Pages. It matches your repository name.
-  base: '/vandanam-school-portal/',
-  build: {
-    outDir: 'dist',
-    emptyOutDir: true,
-  },
-  define: {
-    // This allows process.env.API_KEY to work in the browser for the demo
-    // The JSON.stringify is important to handle the value correctly
-    'process.env.API_KEY': JSON.stringify(process.env.API_KEY || '')
-  }
+// https://vitejs.dev/config/
+export default defineConfig(({ mode }) => {
+  // Use VITE_BASE_PATH env var if it exists (for GitHub Pages), otherwise default to '/' (for Render/Local)
+  const basePath = process.env.VITE_BASE_PATH || '/';
+
+  return {
+    plugins: [react()],
+    base: basePath,
+    build: {
+      outDir: 'dist',
+      emptyOutDir: true,
+    },
+    define: {
+      // This ensures process.env.API_KEY is replaced with the string value during build
+      'process.env.API_KEY': JSON.stringify(process.env.API_KEY || '')
+    }
+  };
 });
