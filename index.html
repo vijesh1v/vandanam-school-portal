@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vandanam School</title>
-    <!-- Tailwind CDN for styling -->
+    <!-- Tailwind CDN for styling (kept for simplicity, though CSS imports are better in Vite) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -64,7 +64,6 @@
 </head>
   <body class="bg-gray-50 text-slate-800 antialiased selection:bg-brand-200 selection:text-brand-900">
     <div id="root"></div>
-    <!-- Vite handles the resolution of this path based on the 'base' config -->
     <script type="module" src="./index.tsx"></script>
   <script type="module" src="/index.tsx"></script>
 </body>
