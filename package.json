@@ -2,6 +2,7 @@
   "name": "vandanam-school-portal",
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://vijesh1v.github.io/vandanam-school-portal/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
