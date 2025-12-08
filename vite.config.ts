@@ -2,20 +2,19 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
-  // Use VITE_BASE_PATH env var if it exists (for GitHub Pages), otherwise default to '/' (for Render/Local)
-  const basePath = process.env.VITE_BASE_PATH || '/';
-
-  return {
-    plugins: [react()],
-    base: basePath,
-    build: {
-      outDir: 'dist',
-      emptyOutDir: true,
-    },
-    define: {
-      // This ensures process.env.API_KEY is replaced with the string value during build
-      'process.env.API_KEY': JSON.stringify(process.env.API_KEY || '')
+export default defineConfig({
+  plugins: [react()],
+  // Critical: './' allows assets to be found regardless of the subdirectory (GitHub Pages or Render)
+  base: './',
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: true,
+  },
+  define: {
+    // Prevents "Uncaught ReferenceError: process is not defined" in some libraries
+    'process.env': {
+      API_KEY: JSON.stringify(process.env.API_KEY || '')
     }
-  };
+  }
 });

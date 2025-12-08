@@ -27,16 +27,12 @@ jobs:
         cache: 'npm'
 
     - name: Install dependencies
-      # Changed from 'npm ci' to 'npm install' to generate lockfile if missing
       run: npm install
 
     - name: Build
       run: npm run build
       env:
-        # API Key from Secrets
         API_KEY: ${{ secrets.API_KEY }}
-        # Critical: Sets the base path for GitHub Pages subdirectory
-        VITE_BASE_PATH: /vandanam-school-portal/
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
